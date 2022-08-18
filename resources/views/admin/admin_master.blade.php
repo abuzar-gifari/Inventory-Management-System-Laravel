@@ -24,6 +24,8 @@
       <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
       <!-- Source Sans Pro Fonts -->
       <link href="http://fonts.cdnfonts.com/css/source-sans-pro" rel="stylesheet">
+      <link href="http://fonts.cdnfonts.com/css/gilroy-bold" rel="stylesheet">
+                
    </head>
    <body data-topbar="dark" style="font-family: 'Source Sans Pro', sans-serif;">
       <!-- <body data-layout="horizontal" data-topbar="dark"> -->
@@ -74,6 +76,12 @@
       <!-- Sweetalert Js -->
       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
       <script src="{{ asset('backend/assets/js/code.js') }}"></script>
+
+      <!-- handlebar js -->
+      <script src="{{ asset('backend/assets/js/handlebars.js') }}"></script>
+
+      <!-- Notify CDN Link -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
 
       <!-- Toaster Message Script -->
       <script>
