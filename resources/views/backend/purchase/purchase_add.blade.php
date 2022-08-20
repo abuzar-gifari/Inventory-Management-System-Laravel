@@ -7,7 +7,9 @@
          <div class="col-12">
             <div class="card">
                <div class="card-body">
-                  <h2 class="mb-3 text-center" style="font-family: 'Gilroy-Bold', sans-serif;">Add Purchase </h2>
+                  <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+               <h2 class="mb-3 text-center" style="font-family: 'Gilroy-Bold', sans-serif;">Add Purchases </h2>
+            </div>
                   <br><br>
                     <div class="row">
                         <div class="col-md-4">
