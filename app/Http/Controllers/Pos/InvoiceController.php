@@ -145,7 +145,7 @@ class InvoiceController extends Controller
             'message' => 'Invoice Data Inserted Successfully', 
             'alert-type' => 'success'
         );
-        return redirect()->route('invoice.all')->with($notification);  
+        return redirect()->route('invoice.pending.list')->with($notification);  
 
 
     }

@@ -7,7 +7,13 @@
          <div class="col-12">
             <div class="card">
                <div class="card-body">
-                  <h4 class="card-title">Add Invoice  </h4>
+                  <div class="row">
+                     <div class="col-12">
+                        <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                           <h2 class="text-center" style="font-family: 'Gilroy-Bold', sans-serif;">Add Invoices </h2>
+                        </div>
+                     </div>
+                  </div>
                   <br><br>
                   <div class="row">
                      <div class="col-md-1">
