@@ -9,7 +9,7 @@
 <div class="row">
 <div class="col-12">
 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-    <h3 class="mb-sm-0" style="font-weight: 900">Dashboard</h3>
+    <h2 class="mb-sm-0" style="font-family: 'Gilroy-Bold', sans-serif;">Invoice Management System Dashboard</h2>
 
     <div class="page-title-right">
         <ol class="breadcrumb m-0">
