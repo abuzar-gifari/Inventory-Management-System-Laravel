@@ -240,11 +240,21 @@ class InvoiceController extends Controller
     }
 
     public function DailyInvoiceReport(){
-        
+        return view('backend.invoice.daily_invoice_report');
     }
 
     public function DailyInvoicePdf(Request $request){
+        $sdate = date('Y-m-d',strtotime($request->start_date));
+        $edate = date('Y-m-d',strtotime($request->end_date));
+        $allData = Invoice::whereBetween('date',[$sdate,$edate])->get();
 
+
+        $start_date = date('Y-m-d',strtotime($request->start_date));
+        $end_date = date('Y-m-d',strtotime($request->end_date));
+
+        return view('backend.pdf.daily_invoice_report_pdf',compact('allData','start_date','end_date'));    
+    
+    
     }
 
 }
