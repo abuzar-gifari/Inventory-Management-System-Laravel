@@ -168,10 +168,10 @@ class InvoiceController extends Controller
         PaymentDetail::where('invoice_id',$invoice->id)->delete(); 
 
          $notification = array(
-        'message' => 'Invoice Deleted Successfully', 
-        'alert-type' => 'success'
-    );
-    return redirect()->back()->with($notification); 
+            'message' => 'Invoice Deleted Successfully', 
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification); 
 
     }// End Method
     
@@ -206,14 +206,14 @@ class InvoiceController extends Controller
 
         DB::transaction(function() use($request,$invoice,$id){
             foreach($request->selling_qty as $key => $val){
-             $invoice_details = InvoiceDetail::where('id',$key)->first();
+                $invoice_details = InvoiceDetail::where('id',$key)->first();
 
-             $invoice_details->status = '1';
-             $invoice_details->save();
+                $invoice_details->status = '1';
+                $invoice_details->save();
 
-             $product = Product::where('id',$invoice_details->product_id)->first();
-             $product->quantity = ((float)$product->quantity) - ((float)$request->selling_qty[$key]);
-             $product->save();
+                $product = Product::where('id',$invoice_details->product_id)->first();
+                $product->quantity = ((float)$product->quantity) - ((float)$request->selling_qty[$key]);
+                $product->save();
             } // end foreach
 
             $invoice->save();
@@ -226,12 +226,17 @@ class InvoiceController extends Controller
         return redirect()->route('invoice.all')->with($notification);
     }
 
-    public function PrintInvoiceList(){
 
+    // Show Print Invoice List Page
+    public function PrintInvoiceList(){
+        $allData = Invoice::orderBy('date','desc')->orderBy('id','desc')->where('status','1')->get();
+        return view('backend.invoice.print_invoice_list',compact('allData'));
     }
 
+    // Print Invoice
     public function PrintInvoice($id){
-        
+        $invoice = Invoice::with('invoice_details')->findOrFail($id);
+        return view('backend.pdf.invoice_pdf',compact('invoice'));
     }
 
     public function DailyInvoiceReport(){
@@ -243,5 +248,3 @@ class InvoiceController extends Controller
     }
 
 }
-
-
