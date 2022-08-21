@@ -246,6 +246,8 @@ class InvoiceController extends Controller
     public function DailyInvoicePdf(Request $request){
         $sdate = date('Y-m-d',strtotime($request->start_date));
         $edate = date('Y-m-d',strtotime($request->end_date));
+
+        
         $allData = Invoice::whereBetween('date',[$sdate,$edate])->get();
 
 

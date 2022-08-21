@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Pos\UnitController;
 use App\Http\Controllers\Demo\DemoController;
+use App\Http\Controllers\Pos\StockController;
 use App\Http\Controllers\Pos\DefaultController;
 use App\Http\Controllers\Pos\InvoiceController;
 use App\Http\Controllers\Pos\ProductController;
@@ -145,6 +146,15 @@ Route::controller(InvoiceController::class)->group(function () {
 
 
 
+// Stock All Route 
+Route::controller(StockController::class)->group(function () {
+    Route::get('/stock/report', 'StockReport')->name('stock.report');
+    Route::get('/stock/report/pdf', 'StockReportPdf')->name('stock.report.pdf'); 
+
+    Route::get('/stock/supplier/wise', 'StockSupplierWise')->name('stock.supplier.wise'); 
+    Route::get('/supplier/wise/pdf', 'SupplierWisePdf')->name('supplier.wise.pdf');
+    Route::get('/product/wise/pdf', 'ProductWisePdf')->name('product.wise.pdf');
+});
 
 
 
