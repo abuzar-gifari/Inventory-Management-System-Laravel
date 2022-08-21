@@ -21,12 +21,15 @@ use DB;
 
 class InvoiceController extends Controller
 {
+
+    // Show All Invoice Page
     public function InvoiceAll(){
         // $allData = Invoice::orderBy('date','desc')->orderBy('id','desc')->where('status','0')->get();
         $allData = Invoice::orderBy('date','desc')->orderBy('id','desc')->where('status','1')->get();
         return view('backend.invoice.invoice_all',compact('allData'));
     }
 
+    // Show Invoice Add Page
     public function invoiceAdd(){ 
         $category = Category::all();
         $costomer = Customer::all();
@@ -42,6 +45,7 @@ class InvoiceController extends Controller
         return view('backend.invoice.invoice_add',compact('invoice_no','category','date','costomer'));
     }
 
+    // Invoice Information Store
     public function InvoiceStore(Request $request){
 
 
@@ -151,14 +155,14 @@ class InvoiceController extends Controller
     }
 
     
-
+    // Invoice Pending List Show
     public function PendingList(){
         $allData = Invoice::orderBy('date','desc')->orderBy('id','desc')->where('status','0')->get();
             return view('backend.invoice.invoice_pending_list',compact('allData'));
     } // End Method
 
 
-
+    // Invoice Information Delete
     public function InvoiceDelete($id){
 
         $invoice = Invoice::findOrFail($id);
@@ -176,14 +180,14 @@ class InvoiceController extends Controller
     }// End Method
     
 
-
+    // Show Invoice Approve Page
     public function InvoiceApprove($id){
         $invoice = Invoice::with('invoice_details')->findOrFail($id);
         return view('backend.invoice.invoice_approve',compact('invoice'));
     }
 
 
-
+    // Invoice Approval Information Store
     public function ApprovalStore(Request $request, $id){
 
         foreach($request->selling_qty as $key => $val){
@@ -239,10 +243,13 @@ class InvoiceController extends Controller
         return view('backend.pdf.invoice_pdf',compact('invoice'));
     }
 
+    // Show Daily Invoice Report Page
     public function DailyInvoiceReport(){
         return view('backend.invoice.daily_invoice_report');
     }
 
+
+    // Daily Invoice Report PDF Generate
     public function DailyInvoicePdf(Request $request){
         $sdate = date('Y-m-d',strtotime($request->start_date));
         $edate = date('Y-m-d',strtotime($request->end_date));
