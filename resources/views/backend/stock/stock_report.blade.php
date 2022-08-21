@@ -6,7 +6,7 @@
       <div class="row">
          <div class="col-12">
             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-               <h4 class="mb-sm-0">Stock Report All</h4>
+               <h2 class="mb-3 text-center" style="font-family: 'Gilroy-Bold', sans-serif;">All Stock Reports </h2>
             </div>
          </div>
       </div>
@@ -15,9 +15,8 @@
          <div class="col-12">
             <div class="card">
                <div class="card-body">
-                  <a href="{{ route('stock.report.pdf') }}" target="_blank" class="btn btn-dark btn-rounded waves-effect waves-light" style="float:right;"><i class="fa fa-print"> Stock Report Print </i></a> <br>  <br>               
-                  <h4 class="card-title">Stock Report </h4>
-                  <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                  <a href="{{ route('stock.report.pdf') }}" target="_blank" class="btn btn-dark btn-rounded waves-effect waves-light" style="float:right;"><i class="fa fa-print"> Stock Report Print </i></a> <br>  <br>
+                  <table id="example1"  class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                      <thead>
                         <tr>
                            <th>Sl</th>

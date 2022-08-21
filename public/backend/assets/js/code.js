@@ -1,4 +1,10 @@
 $(function(){
+
+    $(document).ready(function () {
+        $("#example1").DataTable();
+    });
+    
+
     $(document).on('click','#delete',function(e){
         e.preventDefault();
         var link = $(this).attr("href");

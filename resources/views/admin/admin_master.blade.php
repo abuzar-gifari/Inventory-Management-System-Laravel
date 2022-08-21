@@ -32,6 +32,10 @@
       <!-- Source Sans Pro Fonts -->
       <link href="http://fonts.cdnfonts.com/css/source-sans-pro" rel="stylesheet">
       <link href="http://fonts.cdnfonts.com/css/gilroy-bold" rel="stylesheet">
+
+      <!-- Adding datatable css -->
+      <link rel="stylesheet" href="{{ asset('backend/assets/css/dataTables.bootstrap4.min.css') }}">
+
                 
    </head>
    <body data-topbar="dark" style="font-family: 'Source Sans Pro', sans-serif;">
@@ -94,6 +98,12 @@
       <script src="{{ asset('backend/assets/libs/select2/js/select2.min.js') }}"></script>
       <script src="{{ asset('backend/assets/js/pages/form-advanced.init.js') }}"></script>
       <!-- end For Select2 -->
+
+      <!-- Adding datatable js -->
+      <script src="{{ asset('backend/assets/js/jquery.dataTables.min.js') }}"></script>
+      <script src="{{ asset('backend/assets/js/dataTables.bootstrap4.min.js') }}"></script>
+
+
 
       <!-- Toaster Message Script -->
       <script>
