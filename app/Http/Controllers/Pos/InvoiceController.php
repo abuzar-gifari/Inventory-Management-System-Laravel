@@ -48,7 +48,6 @@ class InvoiceController extends Controller
     // Invoice Information Store
     public function InvoiceStore(Request $request){
 
-
         if ($request->category_id == null) {
             $notification = array(
                 'message' => 'Sorry you do not select any item!', 
@@ -59,12 +58,14 @@ class InvoiceController extends Controller
         else 
         {
             if ($request->paid_amount > $request->estimated_amount) {
+
                 $notification = array(
                     'message' => 'Sorry paid amount is maximum the total price!', 
                     'alert-type' => 'error'
                 );
-
                 return redirect()->back()->with($notification);
+
+
             }else {
                 $invoice = new Invoice();
                 $invoice->invoice_no = $request->invoice_no;
@@ -73,6 +74,7 @@ class InvoiceController extends Controller
                 $invoice->status = '0';
                 $invoice->created_by = Auth::user()->id;
 
+                // New
                 DB::transaction(function () use($request,$invoice){
                     if ($invoice->save()) {
                         $count_category = count($request->category_id);
@@ -141,15 +143,18 @@ class InvoiceController extends Controller
 
                     }
                 });
-
             }
         }
 
+
+        // if everything ok
         $notification = array(
             'message' => 'Invoice Data Inserted Successfully', 
             'alert-type' => 'success'
         );
         return redirect()->route('invoice.pending.list')->with($notification);  
+
+
 
 
     }
@@ -254,14 +259,14 @@ class InvoiceController extends Controller
         $sdate = date('Y-m-d',strtotime($request->start_date));
         $edate = date('Y-m-d',strtotime($request->end_date));
 
-        
+        // New
         $allData = Invoice::whereBetween('date',[$sdate,$edate])->get();
 
 
         $start_date = date('Y-m-d',strtotime($request->start_date));
         $end_date = date('Y-m-d',strtotime($request->end_date));
 
-        return view('backend.pdf.daily_invoice_report_pdf',compact('allData','start_date','end_date'));    
+        return view('backend.pdf.daily_invoice_report_pdf',compact('allData','start_date','end_date'));
     
     
     }
