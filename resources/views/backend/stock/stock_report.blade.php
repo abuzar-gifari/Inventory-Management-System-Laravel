@@ -30,10 +30,18 @@
                      </thead>
                      <tbody>
                         @foreach($allData as $key => $item)
+
+
+
                         @php
+                        // New
                         $buying_total = App\Models\Purchase::where('category_id',$item->category_id)->where('product_id',$item->id)->where('status','1')->sum('buying_qty');
+                        // New
                         $selling_total = App\Models\InvoiceDetail::where('category_id',$item->category_id)->where('product_id',$item->id)->where('status','1')->sum('selling_qty');
                         @endphp
+
+
+
                         <tr>
                            <td> {{ $key+1}} </td>
                            <td> {{ $item['supplier']['name'] }} </td>
