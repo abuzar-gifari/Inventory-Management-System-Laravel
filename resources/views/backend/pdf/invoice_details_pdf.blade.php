@@ -65,7 +65,6 @@
                                        </tr>
                                     </thead>
                                     <tbody>
-                                       <!-- foreach ($order->lineItems as $line) or some such thing here -->
                                        <tr>
                                           <td> {{ $payment['customer']['name'] }}</td>
                                           <td class="text-center">{{ $payment['customer']['mobile_no']  }}</td>
@@ -104,10 +103,9 @@
                                        </tr>
                                     </thead>
                                     <tbody>
-                                       <!-- foreach ($order->lineItems as $line) or some such thing here -->
                                        @php
                                        $total_sum = '0';
-                                       $invoice_details = App\Models\InvoiceDetail::where('invoice_id',$payment->invoice_id)->get();     
+                                       $invoice_details = App\Models\InvoiceDetail::where('invoice_id',$payment->invoice_id)->get();
                                        @endphp
                                        @foreach($invoice_details as $key => $details)
                                        <tr>

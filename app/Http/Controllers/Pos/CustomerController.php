@@ -162,7 +162,7 @@ class CustomerController extends Controller
             'message' => 'Sorry You Paid Maximum Value', 
             'alert-type' => 'error'
         );
-        return redirect()->back()->with($notification); 
+        return redirect()->back()->with($notification);
         } else{
             $payment = Payment::where('invoice_id',$invoice_id)->first();
             $payment_details = new PaymentDetail();
@@ -204,4 +204,21 @@ class CustomerController extends Controller
         return view('backend.pdf.invoice_details_pdf',compact('payment'));
 
     }
+
+    // Paid Customer Page Show
+    public function PaidCustomer(){
+        $allData = Payment::where('paid_status','!=','full_due')->get();
+        return view('backend.customer.customer_paid',compact('allData'));
+    }
+
+    // Paid Customer Print PDF Page Show
+    public function PaidCustomerPrintPdf(){
+
+        $allData = Payment::where('paid_status','!=','full_due')->get();
+        return view('backend.pdf.customer_paid_pdf',compact('allData'));
+    }
+
+
 }
+
+
