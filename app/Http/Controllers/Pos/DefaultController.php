@@ -13,6 +13,8 @@ class DefaultController extends Controller
         // dd($supplier_id);
         $allCategory = Product::with(['category'])->select('category_id')->where('supplier_id',$supplier_id)->groupBy('category_id')->get();
         // dd($allCategory);
+
+        // New
         return response()->json($allCategory);
     } 
 

@@ -6,9 +6,9 @@
       <!-- start page title -->
       <div class="row">
          <div class="col-12">
-            <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-               <h4 class="mb-sm-0"> Customer Wise Report </h4>
-            </div>
+               <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                  <h2 class="mb-3 text-center" style="font-family: 'Gilroy-Bold', sans-serif;">Customer Wise Report </h2>
+               </div>
          </div>
       </div>
       <!-- end page title -->

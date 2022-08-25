@@ -140,6 +140,7 @@ class CustomerController extends Controller
     // Credit Customer Print PDF Page Show
     public function CreditCustomerPrintPdf(){
 
+        // New
         $allData = Payment::whereIn('paid_status',['full_due','partial_paid'])->get();
         return view('backend.pdf.customer_credit_pdf',compact('allData'));
 
@@ -207,13 +208,14 @@ class CustomerController extends Controller
 
     // Paid Customer Page Show
     public function PaidCustomer(){
+        // New
         $allData = Payment::where('paid_status','!=','full_due')->get();
         return view('backend.customer.customer_paid',compact('allData'));
     }
 
     // Paid Customer Print PDF Page Show
     public function PaidCustomerPrintPdf(){
-
+        // New
         $allData = Payment::where('paid_status','!=','full_due')->get();
         return view('backend.pdf.customer_paid_pdf',compact('allData'));
     }
@@ -240,5 +242,3 @@ class CustomerController extends Controller
         return view('backend.pdf.customer_wise_paid_pdf',compact('allData'));
     }
 }
-
-
