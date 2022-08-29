@@ -28,6 +28,7 @@ class DefaultController extends Controller
     // Product Stock Show
     public function GetStock(Request $request){
         $product_id = $request->product_id;
+        // get product quantity
         $stock = Product::where('id',$product_id)->first()->quantity;
         return response()->json($stock);
     } 

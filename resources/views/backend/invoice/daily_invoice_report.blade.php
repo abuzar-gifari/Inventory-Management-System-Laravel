@@ -48,6 +48,10 @@
       </div>
    </div>
 </div>
+
+
+
+<!-- Start Validation Script -->
 <script type="text/javascript">
    $(document).ready(function (){
        $('#myForm').validate({
@@ -84,4 +88,8 @@
    });
    
 </script>
+<!-- End Validation Script -->
+
+
+
 @endsection
