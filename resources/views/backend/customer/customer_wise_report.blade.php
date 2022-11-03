@@ -1,9 +1,9 @@
 <!-- New -->
 @extends('admin.admin_master')
 @section('admin')
-<!-- load ajax -->
+<!-- LOAD AJAX -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<!--// load ajax -->
+
 <div class="page-content">
    <div class="container-fluid">
       <!-- start page title -->
@@ -19,6 +19,8 @@
          <div class="col-12">
             <div class="card">
                <div class="card-body">
+
+
                   <div class="row">
                      <div class="col-md-12 text-center">
                         <strong> Customer Wise Credit Report </strong>
@@ -28,6 +30,10 @@
                      </div>
                   </div>
                   <!-- // end row  -->
+                  
+                  
+                  
+                  
                   <!--  /// Customer Credit Wise  -->
                   <div class="show_credit" style="display:none">
                      <form method="GET" action="{{ route('customer.wise.credit.report') }}" id="myForm" target="_blank" >
@@ -68,6 +74,9 @@
                      </form>
                   </div>
                   <!--  /// End show_paid  -->
+
+
+
                </div>
             </div>
          </div>

@@ -42,7 +42,9 @@
     
                         <div class="p-3">
      
-
+{{-- @php
+    echo hash('12345');
+@endphp --}}
  <form class="form-horizontal mt-3" method="POST" action="{{ route('login') }}">
             @csrf
 
@@ -82,6 +84,8 @@
             </div>
         </div>
     </form>
+
+    <p>username:nasim password:1-9</p>
                         </div>
                         <!-- end -->
                     </div>
